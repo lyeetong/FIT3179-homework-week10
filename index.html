@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <script src="homework.js"></script>
+
+    <title>Homework Week 10: Multiple Visualisations</title>
+
+    <h2>Death Cases by Countries due to Top Killer - Smoking</h2>
+    <div id="map"></div>
+
+    <h2>Death Counts by Physical and Diet Factors</h2>
+    <div id="rose"></div>
+
+    <script type="text/javascript">
+    var vis1 = "https://lyeetong.github.io/FIT3179-homework-week10/map.json";
+    var vis2 = "https://lyeetong.github.io/FIT3179-homework-week10/rose.json";
+
+    vegaEmbed('#map', vis1).then(function(result) {
+    }).catch(console.error);
+    
+    vegaEmbed('#rose', vis2).then(function(result) {
+    }).catch(console.error);
+    </script>
+
+  </body>
+
+</html>
+
+

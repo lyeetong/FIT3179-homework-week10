@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple radial chart with embedded data.",
+  "width": 700,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/deaths_by_factors_categories.csv"
+  },
+  "params": [
+    {
+      "name": "FactorCategory_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "Physical Practices", "Diet Practices"],
+        "labels": ["Show All", "Physical Practices", "Diet Practices"],
+        "name": "Factor Category Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "FactorCategory_selection == null || datum['Factor Category'] == FactorCategory_selection"
+    },
+    {"calculate": "datum['Death Count']/1325548.002620273", "as": "percentage"}
+  ],
+  "layer": [
+    {"mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}},
+    {
+      "mark": {"type": "text", "radiusOffset": 10},
+      "encoding": {
+        "text": {"field": "percentage", "type": "quantitative", "format": ".2f"}
+      }
+    }
+  ],
+  "encoding": {
+    "theta": {"field": "Death Count", "type": "quantitative", "stack": true},
+    "radius": {
+      "field": "Death Count",
+      "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}
+    },
+    "color": {
+      "field": "Factor",
+      "type": "nominal",
+      "scale": {"scheme": "category20"},
+      "legend": {"title": "Factors", "orient": "right", "padding": 50}
+    },
+    "order": {"field": "Death Count", "type": "quantitative"},
+    "tooltip": [
+      {"field": "Factor", "type": "nominal"},
+      {"field": "Death Count", "type": "quantitative"}
+    ],
+    "opacity": {"value": 0.8},
+    "strokeOpacity": {"value": 0.8},
+    "strokeWidth": {"value": 2},
+    "stroke": {"value": "white"}
+  },
+  "config": {}
+}
