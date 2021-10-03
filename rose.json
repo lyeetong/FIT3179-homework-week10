@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A simple radial chart with embedded data.",
-  "width": 700,
-  "height": 600,
+  "width": 550,
+  "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/lyeetong/FIT3179-Assignment-2/main/deaths_by_factors_categories.csv"
   },
