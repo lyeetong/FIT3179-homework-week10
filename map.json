@@ -2,8 +2,8 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Mercator Projection",
     "background": "#EAF2F8",
-    "width": 700,
-    "height": 600,
+    "width":550,
+    "height": 400,
     "projection": {"type": "mercator"},
     "layer": [
       {
